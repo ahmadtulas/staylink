@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string("name");
             $table->bigInteger('price')->length(1000);
             $table->bigInteger('capacity')->length(1000);
+            $table->dateTime("checkInDateTime");
+            $table->dateTime("checkOutDateTime");
+            $table->enum('roomAvailable', ['Yes','No'])->default('Yes');
             $table->bigInteger('isActive')->length(11);
             
             $table->timestamps();
