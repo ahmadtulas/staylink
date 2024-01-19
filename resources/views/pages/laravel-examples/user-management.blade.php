@@ -26,6 +26,8 @@
                         </div>
                         
                         <div class="card-body px-0 pb-2 ">
+
+
                             <div class="row ml-2">
                             <form method='POST' id="availForm" action='{{ route('booking') }}' class='ml-2'>
                                 @csrf
@@ -33,7 +35,7 @@
                                     <input type="hidden" value="2" name="pId">
                                     <div class="mb-3 col-md-4">
                                         <label class="form-label">Select Check In</label>
-                                        <input type="datetime-local" name="checkIn" class="form-control border border-2 p-2" value='CheckIn' required>
+                                        <input type="datetime-local" name="checkIn" id="" class="form-control border border-2 p-2" value='CheckIn' required>
                                         @error('date')
                                     <p class='text-danger inputerror'>{{ $message }} </p>
                                     @enderror
@@ -372,3 +374,5 @@
     <x-plugins></x-plugins>
 
 </x-layout>
+<!-- Add the following script to your HTML file -->
+

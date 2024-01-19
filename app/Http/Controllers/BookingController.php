@@ -32,7 +32,7 @@ class BookingController extends Controller
         if ($availableRooms->isEmpty()) {
             // Room is available
             if ($request->ajax()) {
-                return response()->json(['status' => 'success', 'message' => $checkIn,$propertyId]);
+                return response()->json(['status' => 'success', 'message' => "Available"]);
             } else {
                 return response()->json(['status' => 'request not fulfill', 'message' => 'Room is Available!']);
             }
