@@ -29,7 +29,11 @@
 
 
                             <div class="row ml-2">
-                            <form method='POST' id="availForm" action='{{ route('booking') }}' class='ml-2'>
+                          
+                          
+                          
+                          
+                                <form method='POST' id="availForm" action='{{ route('booking') }}' class='ml-2'>
                                 @csrf
                                 <div class="row ml-2">
                                     <input type="hidden" value="2" name="pId">

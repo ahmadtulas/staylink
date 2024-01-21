@@ -149,7 +149,14 @@
                                     <hr class="horizontal gray-light my-4">
                                     <ul class="list-group">
                                         <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong
-                                                class="text-dark">Full Name:</strong> &nbsp; Alec M. Thompson</li>
+                                                class="text-dark">
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                Full Name:</strong> &nbsp; Alec M. Thompson</li>
                                         <li class="list-group-item border-0 ps-0 text-sm"><strong
                                                 class="text-dark">Mobile:</strong> &nbsp; (44) 123 1234 123</li>
                                         <li class="list-group-item border-0 ps-0 text-sm"><strong

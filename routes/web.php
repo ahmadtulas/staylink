@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,6 +44,12 @@ Route::get('/reset-password/{token}', function ($token) {
 
 Route::post('sign-out', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
 Route::post('booking', [BookingController::class, 'checkAvailability'])->middleware('auth')->name('booking');
+Route::post('user-management', function (Request $req) {
+	dd($req);
+});
+Route::post('step2', [BookingController::class, 'roomselection'])->middleware('auth')->name('step2');
+Route::post('step3', [BookingController::class, 'addingGuest'])->middleware('auth')->name('step3');
+Route::post('step4', [BookingController::class, 'transectionDetail'])->middleware('auth')->name('step4');
 
 Route::get('profile', [ProfileController::class, 'create'])->middleware('auth')->name('profile');
 Route::post('user-profile', [ProfileController::class, 'update'])->middleware('auth');
@@ -71,8 +77,10 @@ Route::group(['middleware' => 'auth'], function () {
 	})->name('static-sign-up');
 	Route::get('user-management', function () {
 		return view('pages.laravel-examples.user-management');
+		
 	})->name('user-management');
 	Route::get('user-profile', function () {
 		return view('pages.laravel-examples.user-profile');
 	})->name('user-profile');
+	
 });
