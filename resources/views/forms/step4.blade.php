@@ -31,53 +31,44 @@
 
                                  
                                         <!-- Initial set of fields -->
-                                        <form class="guestForm" method="POST" action="step4">
+                                        <form class="guestForm" method="POST" action="submitTran">
                                             @csrf
                                             <input type="hidden" name='pId' value="{{$data['pId']}}">
                                             <input type="hidden" name='checkIn' value="{{$data['checkIn']}}">
                                             <input type="hidden" name='checkOut' value="{{$data['checkOut']}}">
                                             <input type="hidden" name='roomIds' value="{{  json_encode($data['roomIds'])}}">
+                                            <input type="hidden" name='groupId' value="{{$groupID}}">
+                                            <input type="hidden" name='totalAmount' value="{{$totalamount}}">
                                            
-                                            <div id="guestContainer">
+                                           <h4>Total Amount: {{$totalamount*$days}} Rupees</h4>
+                                           <div class="input-group input-group-outline mt-3">
+                                            {{-- <label class="form-label">Payment-Type</label> --}}
+                                            <select class="form-select" id="exampleSelect" name="Select-Status">
+                                                <option value="Prepaid">Select Status</option>
+                                          
+                                                <option value="Prepaid">Prepaid</option>
+                                                <option value="Postpaid">Postpaid</option>
+                                                <!-- Add more options as needed -->
+                                            </select>
+                                           
+                                        </div>
+                                        <div class="input-group input-group-outline mt-3">
+                                            {{-- <label class="form-label">Payment-Type</label> --}}
+                                            <select class="form-select" id="exampleSelect" name="payment-method">
+                                                <option value="green">Collection Type</option>
+                                               
+                                                <option value="Online">online</option>
+                                                <option value="Cash">offline</option>
+                                                       <!-- Add more options as needed -->
+                                            </select>   
+                                        </div>
+                                        <div class="input-group input-group-outline mt-3">
+                                            <label class="form-label">Collected Amount</label>
+                                            <input type="text" class="form-control" name="collectedAmount">
+                                        </div>
 
-                                            <div class="input-group input-group-outline mt-3">
-                                                <label class="form-label">Name</label>
-                                                <input type="text" class="form-control" name="name[]">
-                                            </div>
 
-                                        
-                                            <div class="input-group input-group-outline mt-3">
-                                                <label class="form-label">Contact</label>
-                                                <input type="text" class="form-control" name="contact[]">
-                                            </div>
-
-                                            <div class="input-group input-group-outline mt-3">
-                                                <label class="form-label">Age</label>
-                                                <input type="text" class="form-control" name="age[]">
-                                            </div>
-
-                                            <div class="input-group input-group-outline mt-3">
-                                                <label class="form-label">City</label>
-                                                <input type="text" class="form-control" name="city[]">
-                                            </div>
-
-                                            <div class="input-group input-group-outline mt-3">
-                                                <label class="form-label">Country</label>
-                                                <input type="text" class="form-control" name="country[]">
-                                            </div>
-
-                                            <div class="input-group input-group-outline mt-3">
-                                                <label class="form-label">Pincode</label>
-                                                <input type="text" class="form-control" name="pincode[]">
-                                            </div>
-
-                                            <div class="input-group input-group-outline mt-3">
-                                                <label class="form-label">GSTNO</label>
-                                                <input type="text" class="form-control" name="gstno[]">
-                                            </div>
-
-                                            <button type="button" class="fa fa-plus btn btn-primary mb-3 float-end mt-3" id="addGuest">Add More Guest</button>
-            
+                                       
                                     </div>
                                     
                                     

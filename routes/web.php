@@ -47,9 +47,12 @@ Route::post('booking', [BookingController::class, 'checkAvailability'])->middlew
 Route::post('user-management', function (Request $req) {
 	dd($req);
 });
+
 Route::post('step2', [BookingController::class, 'roomselection'])->middleware('auth')->name('step2');
 Route::post('step3', [BookingController::class, 'addingGuest'])->middleware('auth')->name('step3');
 Route::post('step4', [BookingController::class, 'transectionDetail'])->middleware('auth')->name('step4');
+Route::post('submitTran', [BookingController::class, 'submitTran'])->middleware('auth')->name('submitTran');
+
 
 Route::get('profile', [ProfileController::class, 'create'])->middleware('auth')->name('profile');
 Route::post('user-profile', [ProfileController::class, 'update'])->middleware('auth');

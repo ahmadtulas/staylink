@@ -28,36 +28,58 @@
                         <div class="card-body px-0 pb-2 ">
 
 
-                            <div class="row ml-2">
+                            <div class="row justify-center">
                           
                           
                           
                           
-                                <form method='POST' id="availForm" action='{{ route('booking') }}' class='ml-2'>
-                                @csrf
-                                <div class="row ml-2">
-                                    <input type="hidden" value="2" name="pId">
-                                    <div class="mb-3 col-md-4">
-                                        <label class="form-label">Select Check In</label>
-                                        <input type="datetime-local" name="checkIn" id="" class="form-control border border-2 p-2" value='CheckIn' required>
-                                        @error('date')
-                                    <p class='text-danger inputerror'>{{ $message }} </p>
-                                    @enderror
+                                <form method="POST" id="availForm" action="{{ route('booking') }}" class="ml-2">
+                                    @csrf
+                                    @if(session('success'))
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <strong> {{ session('success') }}</strong> 
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                @endif
+                                @if(session('error'))
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <strong> {{ session('error') }}</strong> 
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                            @endif
+                                    <div class="row ml-2">
+                                        <div class="col-md-2"></div>
+                                        <input type="hidden" value="2" name="pId">
+                                        <div class="mb-3 col-md-4">
+                                            <label for="checkIn" class="form-label">Select Check In</label>
+                                            <input type="datetime-local" name="checkIn" id="checkIn" class="form-control border border-2 p-2" required>
+                                            @error('date')
+                                            <p class="text-danger inputerror">{{ $message }} </p>
+                                            @enderror
+                                        </div>
+                                    
+                                    
+                                        <div class="mb-3 col-md-4">
+                                            <label for="checkOut" class="form-label">Select Check Out</label>
+                                            <input type="datetime-local" name="checkOut" id="checkOut" class="form-control border border-2 p-2" required>
+                                            @error('date')
+                                            <p class="text-danger inputerror">{{ $message }} </p>
+                                            @enderror
+                                        </div>
                                     </div>
-                                </div>
+                                    <div id="resultContainer"></div>
                                     <div class="row">
-                                    <div class="mb-3 col-md-4">
-                                        <label class="form-label">Select Check Out</label>
-                                        <input type="datetime-local" name="checkOut" class="form-control border border-2 p-2" value='CheckOut' required>
-                                        @error('date')
-                                    <p class='text-danger inputerror'>{{ $message }} </p>
-                                    @enderror
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4"><button type="button" id="checkAvailabilityBtn" class="btn btn-dark bg-primary float-end">Submit</button></div>
+                                        {{-- <div class="col-md-4"></div>   --}}
                                     </div>
-                                </div> 
-                                <div id="resultContainer"></div>
-                                <button type="button" id="checkAvailabilityBtn" class="btn bg-gradient-dark">Submit</button>
-                            </form>
-                        </div>   
+                                </form>
+                                   
                             {{-- <div class="table-responsive p-0">
                                 <table class="table align-items-center mb-0">
                                     <thead>

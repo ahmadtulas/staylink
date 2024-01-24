@@ -69,6 +69,8 @@ $(document).ready(function(){
             type: 'POST',
             data: $('#availForm').serialize(),
             success: function(response) {
+                console.log(response.roomIds);
+               // console.log(response.catIds);
                 var form = $('<form>', {
                     action: '/step2',  // Update this to your actual endpoint
                     method: 'POST',
@@ -127,14 +129,14 @@ $(document).ready(function(){
     });
 });
 $("#addGuest").click(function() {
-    // Clone only the form fields and the button without the form tag
-    var clonedContent = $(".guestForm:first .input-group, #addGuest").clone();
+    // Clone only the form fields without the form tag
+    var clonedFields = $(".guestForm:first .input-group").clone();
 
     // Clear the values in the cloned fields
-    clonedContent.find('input').val('');
+    clonedFields.find('input').val('');
 
     var clonedIndex = $(".guestForm").length;
-    clonedContent.find('input').each(function(index, element) {
+    clonedFields.find('input').each(function(index, element) {
         var originalName = $(element).attr('name');
         var newName = originalName.replace(/\[\d+\]/g, '[' + clonedIndex + '][]');
         $(element).attr('name', newName);
@@ -146,9 +148,10 @@ $("#addGuest").click(function() {
         }
     });
 
-    // Append the cloned content to the container
-    $("#guestContainer").append(clonedContent);
+    // Append the cloned fields to the container
+    $("#guestContainer").append(clonedFields);
 });
+
 
 
 });

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('guest_infos', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('pId');
             $table->string('groupId');
             $table->string('name');
             $table->string('contact_number')->nullable();
@@ -23,8 +24,8 @@ return new class extends Migration
             $table->string('country')->nullable();
             $table->string('pincode')->nullable();
             $table->string('gst_number')->nullable();
-            $table->date('check_in_date');
-            $table->date('check_out_date');
+            $table->dateTime('check_in_date');
+            $table->dateTime('check_out_date');
             $table->json('roomIds');
             $table->timestamps();
         });

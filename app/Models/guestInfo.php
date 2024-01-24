@@ -9,6 +9,7 @@ class guestInfo extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'pId',
         'name',
         'groupId',
         'contact_number',
