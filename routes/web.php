@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Models\Property;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +15,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
+	return redirect()->route('reservation');
 });
 
 Auth::routes();
@@ -25,6 +26,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\PropertyController;
             
 
 Route::get('/', function () {return redirect('sign-in');})->middleware('guest');
@@ -78,12 +80,27 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('static-sign-up', function () {
 		return view('pages.static-sign-up');
 	})->name('static-sign-up');
-	Route::get('user-management', function () {
+	Route::get('reservation', function (Request $request) {
+		if ($request->filled('pid')) {
+			$pid = $request->input('pid');
+			$p = Property::where('id', $pid)->first();
+			if($p)
+			{
+				return view('pages.laravel-examples.user-management');
+			}
+			else{
+				return redirect()->route('properties');
+			}
+			
+		} else {
+			return redirect()->route('properties');
+		}
 		return view('pages.laravel-examples.user-management');
 		
-	})->name('user-management');
+	})->name('reservation');
 	Route::get('user-profile', function () {
 		return view('pages.laravel-examples.user-profile');
 	})->name('user-profile');
-	
+
+	Route::get('properties', [PropertyController::class, 'index'])->name('properties');
 });

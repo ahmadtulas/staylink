@@ -15,13 +15,9 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->dateTime("date");
-            $table->string("location");
-            $table->string("created_by");
-            $table->string("extra");
-            $table->bigInteger('isActive')->length(11);
-           
+            $table->string('name', 40);
+            $table->text('address');
+            $table->boolean('active')->default(0);
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use App\Models\Room;
+use App\Models\room;
 use App\Models\roomInfo;
 use App\Models\guestInfo;
 use App\Models\transection;
@@ -143,7 +143,7 @@ $roomIds = array_map('intval', $matches[0]);
     $checkOut = Carbon::parse($request->input('checkOut'))->format('Y-m-d H:i:s');
     
         // Check room availability
-        $availableRoomIds = Room::where('propertyId', $propertyId)
+        $availableRoomIds = room::where('propertyId', $propertyId)
         ->where(function ($query) use ($checkIn, $checkOut) {
             $query->where('checkOutDateTime', '>', $checkIn)
                 ->where('checkInDateTime', '<', $checkOut);
