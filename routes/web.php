@@ -101,6 +101,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('user-profile', function () {
 		return view('pages.laravel-examples.user-profile');
 	})->name('user-profile');
-
+	Route::get('trans', [BookingController::class, 'showTrans'])->middleware('auth')->name('trans');
 	Route::get('properties', [PropertyController::class, 'index'])->name('properties');
 });

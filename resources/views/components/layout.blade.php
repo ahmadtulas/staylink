@@ -41,6 +41,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('assets') }}/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+  
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" href="/DataTables/datatables.css" />
+ 
+    <script src="/DataTables/datatables.js"></script>    
 </head>
 <body class="{{ $bodyClass }}">
 

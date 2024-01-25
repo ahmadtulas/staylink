@@ -13,6 +13,13 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Redirect;
 class BookingController extends Controller
 {
+    public function showTrans(){
+        $data=transection::all();
+        return view('pages.transaction',compact('data'));
+    }
+    
+
+
   public function submitTran(Request $req){
    // dd($req->all());
     $data=$req->all();

@@ -39,7 +39,7 @@ function nextStep() {
 
 $(document).ready(function(){
   $(document).ready(function() {
-   
+    $('#myTable').DataTable();
     // Handle form submission using Ajax
     $('#checkAvailabilityBtn').on('click', function() {
       var checkInInput = $('input[name="checkIn"]');
