@@ -110,7 +110,7 @@ return view('forms.step4',compact('data','totalamount','days','groupID'));
 // $matches[0] contains an array of numeric values
 $roomIds = array_map('intval', $matches[0]);
    $data=$r->all();
-        
+   
    //$roomIds = $r->query('roomIds');
 
         // if (empty($roomIds)) {
