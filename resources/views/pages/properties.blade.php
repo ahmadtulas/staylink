@@ -59,7 +59,10 @@
                                                         class="text-secondary text-xs font-weight-bold">{{ $company->created_at }}</span>    
                                                 </td>
                                                 <td class="align-middle text-center text-sm">
-                                                
+                                                    <a href="{{ route('trans',['pid'=>$company->id])}}" ><span class="badge badge-sm bg-gradient-success"> 
+                                                        Transaction
+                                                    </span>
+                                                    </a>
                                                 <a href="{{ route('reservation',['pid'=>$company->id])}}" ><span class="badge badge-sm bg-gradient-danger"> 
                                                     Select
                                                 </span>

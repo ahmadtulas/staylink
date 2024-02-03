@@ -13,9 +13,10 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Redirect;
 class BookingController extends Controller
 {
-    public function showTrans(){
-        $data=transection::all();
-        return view('pages.transaction',compact('data'));
+    public function showTrans(Request $r){
+       $pid= $r->input('pid');
+       $data=transection::where('propertyId',$pid)->get();
+       return view('pages.transaction',compact('data'));
     }
     
 
